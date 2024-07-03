@@ -1,1 +1,126 @@
-Portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lukas Jurisica</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="icon" href="/icons/favicon.ico"> !-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+	<link rel="stylesheet" href="style.css">
+	<script type="module" src="/script.js" defer></script>
+</head>
+<body>
+	<nav id="navbar-container">
+		<div id="navbar" class="content">
+			<div class="nav-item">About</div>
+			<div class="nav-item">Resume</div>
+			<div class="nav-item">Projects</div>
+		</div>
+	</nav>
+	<div class="content">
+		<div id="about" class="sub-page hidden">
+			<div class="header">About</div>
+		</div>
+		
+		<!-- Resume !-->
+		<div id="resume" class="sub-page hidden">
+			<div class="header">Resume</div>
+			
+			<!-- EDUCATION !-->
+			<div class="sub-header">Education</div>
+			<ul class="base-list">
+				<li>
+					<div class="item-header">University of Toronto</div>
+					<div class="item-flavor">Sep 2022 - Dec 2023</div>
+					<div class="item-description">Master of Science in Applied Computing</div>
+				</li>
+				<li>
+					<div class="item-header">Carleton University</div>
+					<div class="item-flavor">Sep 2016 – Jun 2021</div>
+					<div class="item-description">Bachelor of Computer Science: Computer Game Development</div>
+					<div class="item-description">Dean’s Honour List</div>
+					<div class="item-description">Co-operative Education</div>
+				</li>
+			</ul>
+			
+			<!-- Work Experience !-->
+			<div class="sub-header">Work Experience</div>
+			<ul class="base-list">
+				<li>
+					<div class="item-header">Instacart: <span class="item-sub-header">Software Engineer Intern</span></div>
+					<div class="item-flavor">May 2024 - Current</div>
+					<ul class="item-description">
+						<li>.</li>
+						<li>.</li>
+					</ul>
+				</li>
+				<li>
+					<div class="item-header">Adobe: <span class="item-sub-header">Research Scientist/Engineer Intern</span></div>
+					<div class="item-flavor">May 2023 - Dec 2023</div>
+					<ul class="item-description">
+						<li>Developed a highly optimized cross platform large integer library, capable of efficiently performing arithmetic operations on 128, 256, and 512 bit integers using C++. Improved performance to alternatives by up to 5x.</li>
+						<li>Was the lead developer on a research project to create an efficient and robust geometry processing kernel, based on barycentric integer coordinates.</li>
+					</ul>
+				</li>
+				<li>
+					<div class="item-header">Luminet Bio: <span class="item-sub-header">Software Application Developer</span></div>
+					<div class="item-flavor">Sep 2022 - Current</div>
+					<ul class="item-description">
+						<li>Implemented several pipelines for automating the pre-processing of large datasets using python.</li>
+						<li>Built a tool for visualizing large node/edge based graphs using a custom C++/OpenGL rendering engine.</li>
+					</ul>
+				</li>
+				<li>
+					<div class="item-header">Sportomics: <span class="item-sub-header">Software Engineer Intern</span></div>
+					<div class="item-flavor">Sep 2020 - Dec 2020</div>
+					<ul class="item-description">
+						<li>Analyzed and visualized metabolic and proteomic data from blood samples of Olympic level athletes.</li>
+						<li>Developed a prototype of a web interface and backend server using NodeJS, React, and MongoDB to allow team doctors, managers and athletes to access the proteomic data and recommendations.</li>
+					</ul>
+				</li>
+				<li>
+					<div class="item-header">Gimme360: <span class="item-sub-header">Software Developer Intern </span></div>
+					<div class="item-flavor">May 2019 - Aug 2019</div>
+					<ul class="item-description">
+						<li>Contributed to and refactored (improving readability and performance) a back end Node.JS web server, specifically with regards to managing user data hosted in a MongoDB instance.</li>
+						<li>Created a prototype to validate and convert 3D models from various formats (GLTF/GLB, OBJ, FBX) to the USDZ format (for use in augmented reality applications).</li>
+					</ul>
+				</li>
+			</ul>
+			
+			<!-- Publications !-->
+			<div class="sub-header">Publications</div>
+			<ul class="base-list">
+				<li>
+					<div class="item-sub-header"><a class="plain">Urinary microalbumin as early and sensitivity biomarker of hydric status in cross combat athletes. A Sportomics study.</a></div>
+					<div class="item-description">Sci Rep. In Press</div>
+				</li>
+				<li>
+					<div class="item-sub-header"><a class="plain" href="https://www.nature.com/articles/s41598-022-23300-y">Sportomics method to assess acute phase proteins in Olympic level athletes using dried blood spots and multiplex assay.</a></div>
+					<div class="item-description">Sci Rep. 12(1):19824, 2022</div>
+				</li>
+				<li>
+					<div class="item-sub-header"><a class="plain" href="https://www.nature.com/articles/s41598-022-12079-7">Sportomics suggests that albuminuria is a sensitive biomarker of hydration in cross combat.</a></div>
+					<div class="item-description">Sci Rep. 12(1):8150, 2022</div>
+				</li>
+			</ul>
+			
+			<!-- Skills !-->
+			<div class="sub-header">Skills</div>
+			<div class="icon-container">
+				<img class="icon" src="/icons/c++.svg">
+				<img class="icon" src="/icons/js.svg">
+				<img class="icon" src="/icons/python.svg">
+				<img class="icon" src="/icons/opengl.svg">
+				<img class="icon" src="/icons/html.svg">
+				<img class="icon" src="/icons/css.svg">
+				<img class="icon" src="/icons/nodejs.svg">
+			</div>
+		</div>
+		
+		<div id="projects" class="sub-page hidden">
+			<div class="header">Projects</div>
+		</div>
+	</div>
+</body>
+</html>

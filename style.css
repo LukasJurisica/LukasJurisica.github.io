@@ -1,0 +1,160 @@
+/* --------------------------------------
+/	Generic
+/ -------------------------------------- */
+
+:root {
+	--colour-background: #111111;
+	--colour-primary: #1e1e1f;
+	--colour-secondary: #292929;
+	--colour-hover: #383838;
+	--colour-active: #454545;
+	
+	--colour-text-primary: #FFFFFF;
+	--colour-text-secondary: #AAAAAA;
+	--colour-highlight: #eb3838;
+	
+	--transition-speed: 0.25s;
+}
+
+html {
+	font-size: 1rem;
+	font-family: "Poppins", Verdana, Arial, sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	min-height: 100vh;
+	background-color: var(--colour-background);
+	color: var(--colour-text-primary);
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.content {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto 0 auto;
+	padding: 0 1rem;
+}
+
+.thin-content {
+	max-width: 800px;
+	margin-bottom: 1rem;
+}
+
+.hidden {
+	display: none !important;
+}
+
+a.plain {
+	color: var(--colour-text-primary);
+	text-decoration: none;
+}
+
+a.plain:hover {
+	text-decoration: underline;
+}
+
+/* --------------------------------------
+/	Navbar
+/ -------------------------------------- */
+
+#navbar-container {
+	background-color: var(--colour-secondary);
+}
+
+#navbar {
+	display: flex;
+	padding: 0 1rem;
+	flex-direction: row;
+	justify-content: end;
+}
+
+.nav-item {
+	padding: 1rem 2rem;
+	user-select: none;
+	transition: background-color var(--transition-speed);
+}
+
+.nav-item:hover {
+	background-color: var(--colour-hover);
+	cursor: pointer;
+}
+
+.nav-item:active {
+	background-color: var(--colour-active);
+}
+
+.nav-item.active {
+	transition: color var(--transition-speed);
+	color: var(--colour-highlight);
+}
+
+/* --------------------------------------
+/	Sub Pages
+/ -------------------------------------- */
+
+.sub-page {
+	background-color: var(--colour-primary);
+	margin: 2rem 0;
+	padding: 1rem;
+	border-radius: 1rem;
+}
+
+.header {
+	font-size: 3rem;
+	padding: 0 1rem 1rem 1rem;
+	border-bottom: 1px solid var(--colour-highlight);
+}
+
+.sub-header {
+	font-size: 2rem;
+	padding: 1rem;
+}
+
+ul {
+	margin: 0;
+	padding-left: 2rem;
+}
+
+.base-list {
+	padding-left: 3rem;
+}
+
+.base-list > li {
+	padding-bottom: 1rem; 
+}
+
+.item-header {
+	font-size: 1.25rem;
+}
+
+.item-sub-header {
+	font-size: 1rem;
+}
+
+.item-flavor {
+	color: var(--colour-highlight);
+}
+
+.item-description {
+	color: var(--colour-text-secondary);
+}
+
+.icon-container {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1rem 2rem;
+	gap: 2.5rem;
+}
+
+.icon {
+	height: 5rem;
+	width: 5rem;
+}
