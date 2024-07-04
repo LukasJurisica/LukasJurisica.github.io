@@ -4,8 +4,8 @@
 
 :root {
 	--colour-background: #111111;
-	--colour-primary: #1e1e1f;
-	--colour-secondary: #292929;
+	--colour-primary: #252525;
+	--colour-secondary: #444444;
 	--colour-hover: #383838;
 	--colour-active: #454545;
 	
@@ -53,7 +53,7 @@ body {
 }
 
 a.plain {
-	color: var(--colour-text-primary);
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -66,7 +66,7 @@ a.plain:hover {
 / -------------------------------------- */
 
 #navbar-container {
-	background-color: var(--colour-secondary);
+	background-color: var(--colour-primary);
 }
 
 #navbar {
@@ -150,11 +150,57 @@ ul {
 .icon-container {
 	display: flex;
 	flex-wrap: wrap;
-	padding: 1rem 2rem;
-	gap: 2.5rem;
+	align-items: center;
+	padding: 0 1rem;
 }
 
 .icon {
-	height: 5rem;
-	width: 5rem;
+	height: 7rem;
+	aspect-ratio: 1;
+	transition: padding var(--transition-speed);
+	padding: 1rem;
+}
+
+.icon:hover {
+	padding: 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+	.header {
+		font-size: 2rem;
+		padding: 0 0.5rem 0.5rem 0.5rem;
+	}
+	
+	.sub-header {
+		font-size: 1.5rem;
+		padding: 0.5rem;
+	}
+	
+	ul {
+		padding-left: 1rem;
+	}
+	
+	.base-list {
+		padding-left: 1.5rem;
+	}
+
+	.base-list > li {
+		padding-bottom: 0.5rem;
+	}
+	
+	.icon {
+		height: unset;
+		width: 20%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.icon {
+		height: unset;
+		width: calc(100% / 3);
+	}
+	
+	#navbar {
+		justify-content: space-between;
+	}
 }
