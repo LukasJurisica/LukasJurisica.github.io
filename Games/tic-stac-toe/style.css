@@ -1,0 +1,183 @@
+:root {
+	--colour-primary: #B03838;
+	--colour-secondary: #E3C3C3;
+	--colour-background: #478EFF;
+	--flip-black: 1;
+	
+	--colour-selected: #dd00ff;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+body {
+	background-color: var(--colour-background);
+}
+
+/* CONTAINERS */
+#main-container {
+	margin-top: 5rem;
+	display: flex;
+}
+
+.board {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.bench {
+	width: calc(100% / 7 * 2);
+	aspect-ratio: 2/3;
+}
+
+.tile {
+	aspect-ratio: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* CONTAINER SPECIALIZATION */
+
+#standard-board {
+	width: calc(100% / 7 * 3);
+	border: 0.25rem solid var(--colour-primary);
+	aspect-ratio: 1;
+}
+
+#standard-board > .tile {
+	width: calc(100% / 3);
+}
+
+.bench > .tile {
+	width: 50%;
+}
+
+.tile.white {
+	background-color: var(--colour-secondary);
+}
+
+.tile.white.valid-move {
+	background-color: #B2C79A;
+}
+
+.tile.black {
+	background-color: var(--colour-primary);
+}
+
+.tile.black.valid-move {
+	background-color: #998255;
+}
+
+/* PIECES */
+
+.piece {
+	border-radius: 50%;
+}
+
+.piece.white {
+	background-color: #FFFFFF;
+}
+
+.piece.black {
+	background-color: #000000;
+}
+
+.piece.big {
+	width: 75%;
+	height: 75%;
+}
+
+.piece.medium {
+	width: 50%;
+	height: 50%;
+}
+
+.piece.small {
+	width: 25%;
+	height: 25%;
+}
+
+.piece.selected {
+	outline: 5px solid var(--colour-selected);
+}
+
+#modal-container {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	padding: 1rem 2rem;
+}
+
+#modal-container.hidden {
+	pointer-events: none;
+}
+
+#victory-popup {
+	width: 100%;
+	max-width: 300px;
+	margin: calc(min(20vw, 240px)) auto 0 auto;
+	
+	padding: 1rem;
+	border-radius: 1rem;
+
+	background-color: var(--colour-background);
+	border: 2px solid #00268f;
+}
+
+#victory-text {
+	color: #FFFFFF;
+	text-align: center;
+	padding: 0 1rem 1rem 1rem;
+	font-size: 2rem;
+}
+	
+#replay-button {
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	background-color: #FFFFFF;
+	cursor: pointer;
+	user-select: none;
+	text-align: center;
+	font-size: 1.25rem;
+}
+
+#replay-button:hover {
+	background-color: #EEEEEE;
+}
+
+#replay-button:active {
+	background-color: #DDDDDD;
+}
+
+@media screen and (max-width: 800px) {
+	#main-container {
+		flex-direction: column;
+		margin-top: 0;
+	}
+	
+	.bench {
+		width: 75%;
+		aspect-ratio: 3/2;
+		margin: 0 auto;
+		flex-direction: column;
+	}
+	
+	.bench > .tile {
+		width: calc(100% / 3);
+	}
+	
+	#standard-board {
+		width: 100%;
+	}
+	
+	#victory-popup {
+		margin-top: 70vw
+	}
+}
