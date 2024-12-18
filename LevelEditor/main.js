@@ -38,6 +38,10 @@ gl.canvas.addEventListener("wheel", (e) => {
 });
 
 gl.canvas.addEventListener("mousedown", (e) => {
+	if (e.button == 0) {
+		let coord = camera.GetWorldSpacePosition([e.offsetX, e.offsetY]);
+		console.log(Math.floor(coord[0]), Math.floor(coord[1]));
+	}
 	if (e.button == 1) {
 		camera_moving = true
 		mouse_x = e.offsetX

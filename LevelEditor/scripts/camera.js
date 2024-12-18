@@ -48,9 +48,9 @@ const Camera2D = class {
 	}
 
 	GetWorldSpacePosition(coordinate) {
-		canvas_size = [window.gl.canvas.offsetWidth / 2.0, window.gl.canvas.offsetHeight / 2.0];
+		let canvas_size = [window.gl.canvas.offsetWidth / 2.0, window.gl.canvas.offsetHeight / 2.0];
 		coordinate = [coordinate[0] - canvas_size[0], coordinate[1] - canvas_size[1]];
-		coordinate = GetWorldSpaceTranslation([coordinate[0], -coordinate[1]]);
+		coordinate = this.GetWorldSpaceTranslation([coordinate[0], -coordinate[1]]);
 		return [this.position[0] + coordinate[0], this.position[1] + coordinate[1]];
 	}
 
