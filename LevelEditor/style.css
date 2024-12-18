@@ -1,0 +1,113 @@
+/*========================================================================
+ General
+========================================================================*/
+
+:root {
+	--colour-background: #111111;
+	--colour-primary: #252525;
+	--colour-secondary: #444444;
+	--colour-highlight: #eb3838;
+	--colour-text-primary: #FFFFFF;
+	--colour-text-secondary: #AAAAAA;
+	--colour-button-hover: var(--colour-highlight);
+	
+	--hover-speed: 0.3s;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 1rem;
+	font-family: "Poppins", Verdana, Arial, sans-serif;
+	color: var(--colour-text-primary);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	min-height: 100vh;
+}
+
+.content {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.standard-button {
+	font-size: 90%;
+	color: #FFFFFF;
+	background-color: var(--colour-secondary);
+	padding: 0.5rem 1rem;
+	display: inline-block;
+	border-radius: 0.5rem;
+	user-select: none;
+	transition: background-color var(--hover-speed) ease;
+}
+
+.standard-button:hover {
+	background-color: var(--colour-highlight);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.standard-button:active {
+	filter: brightness(75%);
+}
+
+.standard-input {
+	border-radius: 0.5rem;
+	padding: 0.5rem 0.75rem;
+	width: 5rem;
+	border: 1px solid black;
+}
+
+.standard-input:focus {
+	border: 1px solid black;
+	outline: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.hide-overflow {
+	overflow: hidden;
+}
+
+.tool-container {
+	background-color: var(--colour-primary);
+	padding: 1rem 0;
+	position: absolute;
+	width: 100vw;
+	left: 0;
+	top: 0;
+}
+
+.tool-container>.content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.nav-group {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+canvas {
+	aspect-ratio: unset;
+}
+
+#editor {
+	width: 100vw;
+	height: 100vh;
+}
