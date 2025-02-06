@@ -1,0 +1,79 @@
+.outer-board-container {
+	height: 100dvh;
+    overflow: auto;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-board-container {
+	height: 100%;
+	aspect-ratio: 1/1;
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#board {
+	width: 100%;
+	aspect-ratio: inherit;
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: repeat(8, 1fr);
+	border: 10px solid var(--colour-primary);
+	background-color: var(--colour-white);
+}
+
+#board.flip {
+	-webkit-transform: scaleY(-1);
+	transform: scaleY(-1);
+}
+
+.tile {
+	display: flex;
+	align-items: center;
+	padding: 5%;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+#board.flip .tile {
+	-webkit-transform: scaleY(-1);
+	transform: scaleY(-1);
+}
+
+.tile.black {
+	background-color: var(--colour-black);
+}
+
+.tile.white.selected {
+	background-color: var(--colour-white-selected);
+}
+
+.tile.black.selected {
+	background-color: var(--colour-black-selected);
+}
+
+.tile.move::after {
+	background-image: url('/chess/images/move.svg');
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+    content:"";
+}
+
+.tile.move:has(img)::after {
+	background-image: url('/chess/images/capture.svg');
+}
+
+.tile>img {
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}

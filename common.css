@@ -1,0 +1,64 @@
+:root {
+	color-scheme: dark;
+
+	--colour-background: #111111;
+	--colour-primary: #252525;
+	--colour-secondary: #444444;
+	--colour-hover: #383838;
+	--colour-active: #454545;
+	
+	--colour-text-primary: #FFFFFF;
+	--colour-text-secondary: #AAAAAA;
+	--colour-highlight: #eb3838;
+	
+	--transition-speed: 0.25s;
+}
+
+html {
+	font-size: 1rem;
+	font-family: "Poppins", Verdana, Arial, sans-serif;
+}
+
+body {
+	background-color: var(--colour-background);
+	color: var(--colour-text-primary);
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	min-height: 100dvh;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.unselectable, img {
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+	user-drag: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.content {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto 0 auto;
+	padding: 0 1rem;
+}
+
+.thin-content {
+	max-width: 800px;
+	margin-bottom: 1rem;
+}
+
+.hidden {
+	display: none !important;
+}

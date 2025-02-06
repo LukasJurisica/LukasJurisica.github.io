@@ -70,10 +70,11 @@ const Shader = class {
 	}
 	
 	#GetUniformLocation(name) {
+		this.Bind();
 		if (!(name in this.uniforms)) {
 			this.uniforms[name] = window.gl.getUniformLocation(this.id, name);
 			if (this.uniforms[name] === null)
-				console.log("Error: unform with name \"" + name + "\" not found.");
+				console.log("Error: uniform with name \"" + name + "\" not found.");
 		}
 		return this.uniforms[name];
 	}
@@ -98,16 +99,32 @@ const Shader = class {
 		return sources;
 	}
 	
-	SetFloatV(name, data) {
+	SetFloat(name, data) {
 		let loc = this.#GetUniformLocation(name);
-		if (data.length == 1)
-			window.gl.uniform1fv(loc, data);
-		else if (data.length == 2)
-			window.gl.uniform2fv(loc, data);
-		else if (data.length == 3)
-			window.gl.uniform3fv(loc, data);
-		else if (data.length == 4)
-			window.gl.uniform4fv(loc, data);
+		if (loc) {
+			if (data.length == 1)
+				window.gl.uniform1fv(loc, data);
+			else if (data.length == 2)
+				window.gl.uniform2fv(loc, data);
+			else if (data.length == 3)
+				window.gl.uniform3fv(loc, data);
+			else if (data.length == 4)
+				window.gl.uniform4fv(loc, data);
+		}
+	}
+	
+	SetInt(name, data) {
+		let loc = this.#GetUniformLocation(name);
+		if (loc) {
+			if (data.length == 1)
+				window.gl.uniform1iv(loc, data);
+			else if (data.length == 2)
+				window.gl.uniform2iv(loc, data);
+			else if (data.length == 3)
+				window.gl.uniform3iv(loc, data);
+			else if (data.length == 4)
+				window.gl.uniform4iv(loc, data);
+		}
 	}
 }
 

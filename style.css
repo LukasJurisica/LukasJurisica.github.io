@@ -2,54 +2,8 @@
 /	Generic
 / -------------------------------------- */
 
-:root {
-	--colour-background: #111111;
-	--colour-primary: #252525;
-	--colour-secondary: #444444;
-	--colour-hover: #383838;
-	--colour-active: #454545;
-	
-	--colour-text-primary: #FFFFFF;
-	--colour-text-secondary: #AAAAAA;
-	--colour-highlight: #eb3838;
-	
-	--transition-speed: 0.25s;
-}
-
 html {
-	font-size: 1rem;
-	font-family: "Poppins", Verdana, Arial, sans-serif;
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-	margin: 0;
-	min-height: 100vh;
-	background-color: var(--colour-background);
-	color: var(--colour-text-primary);
-}
-
-* {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-.content {
-	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto 0 auto;
-	padding: 0 1rem;
-}
-
-.thin-content {
-	max-width: 800px;
-	margin-bottom: 1rem;
-}
-
-.hidden {
-	display: none !important;
+	overflow-y: scroll;
 }
 
 a.plain {
@@ -80,6 +34,11 @@ a.plain:hover {
 	padding: 1rem 2rem;
 	user-select: none;
 	transition: background-color var(--transition-speed);
+}
+
+a.nav-item {
+	text-decoration: none;
+	color: inherit;
 }
 
 .nav-item:hover {
@@ -135,6 +94,15 @@ ul {
 	font-size: 1.25rem;
 }
 
+a.item-header {
+	text-decoration: none;
+	color: inherit;
+}
+
+a.item-header:hover {
+	text-decoration: underline;
+}
+
 .item-sub-header {
 	font-size: 1rem;
 }
@@ -164,6 +132,39 @@ ul {
 .icon:hover {
 	padding: 0.5rem;
 }
+
+.project {
+	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+:nth-child(1 of div.project)  {
+	padding-top: 1.5rem;
+}
+
+.project:not(:last-of-type) {
+	border-bottom: 1px solid var(--colour-secondary);
+}
+
+.project-thumbnail {
+	height: 6rem;
+	padding: 0.5rem;
+	transition: padding var(--transition-speed) ease;
+}
+
+.project-thumbnail:hover {
+	padding: 0;
+}
+
+.project-content {
+	padding-left: 1rem;
+}
+
+/* --------------------------------------
+/	Responsiveness
+/ -------------------------------------- */
 
 @media screen and (max-width: 800px) {
 	.header {
