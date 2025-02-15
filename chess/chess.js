@@ -21,7 +21,7 @@ const game_state = {
 	all_moves: [[], []],
 	current_moves: [],
 	castle: [[true, true], [true, true]],
-	en_passant: -1
+	en_passant: -10
 };
 
 // Utility Functions
@@ -67,7 +67,7 @@ function MovePiece(src, dst) {
 	const piece = GetPiece(src);
 	const turn = GetTurn();
 	const en_passant = game_state.en_passant;
-	game_state.en_passant = -1;
+	game_state.en_passant = -10;
 	
 	// Remove Castling Rights
 	if (piece[PIECE] == KING) {
@@ -211,6 +211,7 @@ function GetValidMoves(r, f) {
 }
 
 function UpdateValidMoves(moves) {
+	console.log(moves);
 	for (const move of game_state.current_moves)
 		board_element.children[move].classList.remove("move");
 	game_state.current_moves = moves;
