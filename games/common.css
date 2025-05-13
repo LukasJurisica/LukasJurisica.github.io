@@ -3,4 +3,67 @@ body {
 	--colour-black: #B03838;
 	--colour-white-selected: #d6b998;
 	--colour-black-selected: #b06638;
+	--colour-bench: #555555;
+	--colour-selected: #dd00ff;
+}
+
+#board {
+	transition: 0.5s filter ease-in;
+}
+
+#board.blurred {
+	filter: blur(1rem);
+}
+
+/* Modal */
+
+#modal {
+	width: 100dvw;
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.victory-popup {
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--colour-bench);
+	border: 5px solid var(--colour-black);
+	width: 300px;
+	align-items: center;
+	padding: 2.5rem;
+	border-radius: 1rem;
+	gap: 1rem;
+}
+
+#victory-popup-text {
+	font-size: 2rem;
+	user-select: none;
+}
+
+#play-again-button {
+	font-size: 1.25rem;	
+	padding: 0.5rem 2rem;
+	border-radius: 1rem;
+	background-color: var(--colour-white);
+	color: #000000;
+	border: 2px solid var(--colour-black);
+	color: var(--colour-black);
+	user-select: none;
+	cursor: pointer;
+	transition: background-color var(--transition-speed) ease;
+	transition: color var(--transition-speed) ease;
+}
+
+#play-again-button:hover {
+	border: 2px solid var(--colour-white);
+	background-color: var(--colour-black);
+	color: var(--colour-white);
 }

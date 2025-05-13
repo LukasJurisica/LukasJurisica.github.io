@@ -12,6 +12,9 @@ const FLIP_BOARD = false;
 
 // HTML elements
 const board_element = document.getElementById("board");
+const modal = document.getElementById("modal");
+const victory_text = document.getElementById("victory-popup-text");
+const play_again_button = document.getElementById("play-again-button");
 
 // Game State
 const game_state = {
@@ -91,8 +94,15 @@ function MovePiece(src, dst) {
 		// Capture en passent
 		else if (en_passant == dst - (GetDirection() * 8))
 			SetPiece(en_passant, [-1, -1]);
+		else if (dst < 8 || dst >= 56)
+			console.log("PROMOTE");
 	}
 
+	if (GetPiece(dst)[PIECE] == KING) {
+		board_element.classList.add("blurred");
+		victory_text.innerHTML = ["White", "Black"][game_state.turn & 1] + " Wins!";
+		modal.classList.remove("hidden");
+	}
 	SetPiece(dst, piece);
 	SetPiece(src, [-1, -1]);
 	game_state.turn += 1;
@@ -211,7 +221,6 @@ function GetValidMoves(r, f) {
 }
 
 function UpdateValidMoves(moves) {
-	console.log(moves);
 	for (const move of game_state.current_moves)
 		board_element.children[move].classList.remove("move");
 	game_state.current_moves = moves;
@@ -245,6 +254,11 @@ function TileOnclick(e) {
 }
 
 function InitBoard() {
+	modal.classList.add("hidden");
+	board_element.innerHTML = "";
+	board_element.classList.remove("blurred");
+	game_state.turn = WHITE;
+	
 	for (let i = 0; i < 64; i++) {
 		let tile = document.createElement("div");
 		tile.classList.add("tile");
@@ -263,4 +277,5 @@ function InitBoard() {
 	}
 }
 
+play_again_button.onclick = InitBoard;
 InitBoard();

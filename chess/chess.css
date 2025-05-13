@@ -77,3 +77,9 @@
 	height: 100%;
 	pointer-events: none;
 }
+
+@media screen and (max-width: 800px) {
+	.outer-board-container {
+		padding: 0;
+	}
+}
