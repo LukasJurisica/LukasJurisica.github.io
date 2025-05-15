@@ -2,6 +2,7 @@
 const WHITE = 0, BLACK = 1;
 const PAWN = 0, KNIGHT = 1, BISHOP = 2, ROOK = 3, QUEEN = 4, KING = 5;
 const BACK_RANK_PIECES = [ROOK, KNIGHT, BISHOP, QUEEN, KING, BISHOP, KNIGHT, ROOK];
+const PROMOTION_OPTIONS = [QUEEN, ROOK, BISHOP, KNIGHT];
 const SIDES = ["w", "b"];
 const PIECES = ["p", "n", "b", "r", "q", "k"];
 const SIDE = 0, PIECE = 1;
@@ -15,12 +16,16 @@ const board_element = document.getElementById("board");
 const modal = document.getElementById("modal");
 const victory_text = document.getElementById("victory-popup-text");
 const play_again_button = document.getElementById("play-again-button");
+const promotion_container = document.getElementById("promotion-container");
+const w_promotion_panel = document.getElementById("white-promotion-panel");
+const b_promotion_panel = document.getElementById("black-promotion-panel");
 
 // Game State
 const game_state = {
 	board: new Array(64),
 	turn: WHITE,
 	current_selection: -1,
+	promotion_tile: -1,
 	all_moves: [[], []],
 	current_moves: [],
 	castle: [[true, true], [true, true]],
@@ -94,8 +99,9 @@ function MovePiece(src, dst) {
 		// Capture en passent
 		else if (en_passant == dst - (GetDirection() * 8))
 			SetPiece(en_passant, [-1, -1]);
+		// Promote Pawn
 		else if (dst < 8 || dst >= 56)
-			console.log("PROMOTE");
+			StartPromotion(turn, dst);
 	}
 
 	if (GetPiece(dst)[PIECE] == KING) {
@@ -253,6 +259,38 @@ function TileOnclick(e) {
 	SelectTile(parseInt(e.target.dataset.index));
 }
 
+function GetPromotionPanel(side) {
+	return [w_promotion_panel, b_promotion_panel][side];
+}
+
+function PromotePiece(e) {
+	const side = 1 - GetTurn();
+	SetPiece(game_state.promotion_tile, [side, PROMOTION_OPTIONS[e.target.dataset.index]]);
+	promotion_container.classList.add("hidden");
+	GetPromotionPanel(side).classList.add("hidden");
+}
+
+function StartPromotion(side, position) {
+	game_state.promotion_tile = position;
+	promotion_container.classList.remove("hidden");
+	GetPromotionPanel(side).classList.remove("hidden");
+}
+
+function InitPromotionPanel(side) {
+	const promotion_panel = GetPromotionPanel(side);
+	for (let i = 0; i < 4; i++) {
+		let tile = document.createElement("div");
+		tile.classList.add("tile");
+		tile.onclick = PromotePiece;
+		tile.dataset.index = i;
+		let piece = document.createElement("img");
+		piece.src = "./images/" + SIDES[side] + PIECES[PROMOTION_OPTIONS[i]] + ".svg";
+		tile.appendChild(piece);
+		promotion_panel.appendChild(tile);
+	}
+	promotion_panel.classList.add("hidden");
+}
+
 function InitBoard() {
 	modal.classList.add("hidden");
 	board_element.innerHTML = "";
@@ -275,6 +313,9 @@ function InitBoard() {
 		SetPiece(GetIndex(6, i), [WHITE, PAWN]);
 		SetPiece(GetIndex(7, i), [WHITE, BACK_RANK_PIECES[i]]);
 	}
+	
+	InitPromotionPanel(WHITE);
+	InitPromotionPanel(BLACK);
 }
 
 play_again_button.onclick = InitBoard;

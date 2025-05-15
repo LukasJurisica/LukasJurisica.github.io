@@ -3,8 +3,10 @@ body {
 	--colour-black: #B03838;
 	--colour-white-selected: #d6b998;
 	--colour-black-selected: #b06638;
+	--colour-light-gray: #BFBFBF;
+	--colour-dark-gray: #606060;
 	--colour-bench: #555555;
-	--colour-selected: #dd00ff;
+	--colour-selected: #bf6841;
 }
 
 #board {

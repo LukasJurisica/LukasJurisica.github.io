@@ -22,8 +22,23 @@
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
 	grid-template-rows: repeat(8, 1fr);
-	border: 10px solid var(--colour-primary);
-	background-color: var(--colour-white);
+	border: 1rem solid var(--colour-primary);
+}
+
+#promotion-container {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.promotion-panel {
+	box-sizing: content-box;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: calc(10%);
+	padding: 1rem;
 }
 
 #board.flip {
@@ -34,7 +49,6 @@
 .tile {
 	display: flex;
 	align-items: center;
-	padding: 5%;
 	width: 100%;
 	height: 100%;
 	position: relative;
@@ -45,8 +59,24 @@
 	transform: scaleY(-1);
 }
 
+.tile.white {
+	background-color: var(--colour-white);
+}
+
 .tile.black {
 	background-color: var(--colour-black);
+}
+
+.promotion-panel>.tile {
+	background-color: var(--colour-bench);
+	width: calc(100%/8);
+	aspect-ratio: 1;
+	border: 0.5rem solid var(--colour-background);
+}
+
+.promotion-panel>.tile:hover {
+	background-color: var(--colour-selected);
+	cursor: pointer;
 }
 
 .tile.white.selected {
@@ -78,8 +108,16 @@
 	pointer-events: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px), screen and (max-height: 800px) {
 	.outer-board-container {
 		padding: 0;
+	}
+	
+	#board {
+		border: none;
+	}
+	
+	.promotion-panel>.tile {
+		border-width: 0.25rem;
 	}
 }
