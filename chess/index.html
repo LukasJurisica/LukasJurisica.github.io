@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Chess</title>
+	<title>Chess - Lukas Jurisica</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Play chess online with this complete implementation featuring move validation, piece promotion, and victory detection. Built with vanilla JavaScript.">
+	<meta name="keywords" content="chess, online chess, JavaScript chess, browser game">
+	<meta name="author" content="Lukas Jurisica">
+	
+	<!-- Open Graph for social sharing -->
+	<meta property="og:title" content="Chess - Lukas Jurisica">
+	<meta property="og:description" content="Play chess online with this complete implementation featuring move validation, piece promotion, and victory detection.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://lukasjurisica.github.io/chess/">
+	<meta property="og:image" content="https://lukasjurisica.github.io/og-image.jpg">
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Chess - Lukas Jurisica">
+	<meta name="twitter:description" content="Play chess online with this complete implementation.">
+	
+	<!-- Resource optimization -->
+	<link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins" as="style">
+	<link rel="preload" href="/common.css" as="style">
+	<link rel="preload" href="/games/common.css" as="style">
+	<link rel="preload" href="./chess.css" as="style">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	
+	<!-- Favicon and stylesheets -->
 	<link rel="icon" href="./images/favicon.ico">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 	<link rel="stylesheet" href="/common.css">
@@ -12,23 +37,23 @@
 	<script type="module" src="./chess.js" defer></script>
 </head>
 <body>
-	<div class="outer-board-container">
+	<main class="outer-board-container" role="main" aria-label="Chess game">
 		<div class="inner-board-container">
-			<div id="board"></div>
+			<div id="board" role="application" aria-label="Chess board" tabindex="0"></div>
+		</div>
+	</main>
+	
+	<div id="promotion-container" class="outer-board-container hidden" role="dialog" aria-label="Pawn promotion" aria-hidden="true">
+		<div class="inner-board-container">
+			<div id="white-promotion-panel" class="promotion-panel hidden" role="group" aria-label="White promotion options"></div>
+			<div id="black-promotion-panel" class="promotion-panel hidden" role="group" aria-label="Black promotion options"></div>
 		</div>
 	</div>
 	
-	<div id="promotion-container" class="outer-board-container hidden">
-		<div class="inner-board-container">
-			<div id="white-promotion-panel" class="promotion-panel hidden"></div>
-			<div id="black-promotion-panel" class="promotion-panel hidden"></div>
-		</div>
-	</div>
-	
-	<div id="modal">
+	<div id="modal" class="" role="dialog" aria-label="Game result" aria-hidden="true">
 		<div class="victory-popup">
-			<div id="victory-popup-text">White Wins!</div>
-			<div id="play-again-button">Play Again</div>
+			<div id="victory-popup-text" role="status" aria-live="polite">White Wins!</div>
+			<div id="play-again-button" role="button" tabindex="0" aria-label="Start new game">Play Again</div>
 		</div>
 	</div>
 </body>

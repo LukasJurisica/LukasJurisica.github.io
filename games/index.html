@@ -4,17 +4,40 @@
 	<title>Lukas Jurisica - Games</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link rel="icon" href="/icons/favicon.ico"> !-->
+	<meta name="description" content="Interactive browser games by Lukas Jurisica including Chess and Tic-Stac-Toe. Built with vanilla JavaScript and featuring responsive design.">
+	<meta name="keywords" content="browser games, chess, tic-tac-toe, JavaScript games, interactive games">
+	<meta name="author" content="Lukas Jurisica">
+	
+	<!-- Open Graph for social sharing -->
+	<meta property="og:title" content="Lukas Jurisica - Games">
+	<meta property="og:description" content="Interactive browser games including Chess and Tic-Stac-Toe. Built with vanilla JavaScript and featuring responsive design.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://lukasjurisica.github.io/games/">
+	<meta property="og:image" content="https://lukasjurisica.github.io/og-image.jpg">
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Lukas Jurisica - Games">
+	<meta name="twitter:description" content="Interactive browser games including Chess and Tic-Stac-Toe.">
+	
+	<!-- Resource optimization -->
+	<link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins" as="style">
+	<link rel="preload" href="/common.css" as="style">
+	<link rel="preload" href="/style.css" as="style">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	
+	<!-- Stylesheets -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 	<link rel="stylesheet" href="/common.css">
 	<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-	<nav id="navbar-container">
+	<nav id="navbar-container" role="navigation" aria-label="Main navigation">
 		<div id="navbar" class="content">
 			<a href="/?tab=about" class="nav-item">About</a>
 			<a href="/?tab=resume" class="nav-item">Resume</a>
-			<a href="/?tab=projects" class="nav-item active">Projects</a>
+			<a href="/?tab=projects" class="nav-item active" aria-current="page">Projects</a>
 		</div>
 	</nav>
 	<div class="content">
@@ -22,7 +45,9 @@
 			<div class="header">Games</div>
 			
 			<div class="project">
-				<a href="/chess/"><img src="/games/icons/chess.svg" class="project-thumbnail"></a>
+				<a href="/chess/" aria-label="Play Chess game">
+					<img src="/games/icons/chess.svg" class="project-thumbnail" alt="Chess game icon" loading="lazy">
+				</a>
 				<div class="project-content">
 					<a href="/chess/" class="item-header">Chess</a>
 					<div class="item-description">A simple implementation of Chess</div>
@@ -30,13 +55,14 @@
 			</div>
 			
 			<div class="project">
-				<a href="/tic-stac-toe/"><img src="/games/icons/tst.svg" class="project-thumbnail"></a>
+				<a href="/tic-stac-toe/" aria-label="Play Tic-Stac-Toe game">
+					<img src="/games/icons/tst.svg" class="project-thumbnail" alt="Tic-Stac-Toe game icon" loading="lazy">
+				</a>
 				<div class="project-content">
 					<a href="/tic-stac-toe/" class="item-header">Tic-Stac-Toe</a>
 					<div class="item-description">A more complicated version of Tic Tac Toe, where each player has 6 pieces of varying sizes.</div>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 </body>
